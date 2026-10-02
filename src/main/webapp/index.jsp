@@ -11,7 +11,7 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background: #f5f5f5;
-            color: #333;
+            color: #373;
         }
 
         header {
