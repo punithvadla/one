@@ -1,126 +1,157 @@
 ```jsp
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>ShopEasy - E-Commerce Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopEasy | Modern E-Commerce</title>
 
     <style>
-        body {
+
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            color: #333;
+            padding: 0;
+            box-sizing: border-box;
         }
 
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f7f8fc;
+            color: #1f2937;
+        }
+
+        /* ================= HEADER ================= */
+
         header {
-            background: #222;
+            background: rgba(15, 23, 42, 0.97);
             color: white;
-            padding: 18px 50px;
+            padding: 18px 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
 
-        header h1 {
-            margin: 0;
-            color: #00d4ff;
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
         }
 
         nav a {
-            color: white;
+            color: #e2e8f0;
             text-decoration: none;
-            margin-left: 25px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.3s;
         }
 
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        .cart {
+            background: #38bdf8;
+            color: #0f172a !important;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-weight: 700 !important;
+        }
+
+        .cart:hover {
+            background: #7dd3fc;
+        }
+
+        /* ================= HERO ================= */
+
         .hero {
-            background: linear-gradient(120deg, #007bff, #00c6ff);
-            color: white;
-            padding: 60px 20px;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            color: white;
+
+            background:
+                radial-gradient(circle at 20% 20%, rgba(56,189,248,0.35), transparent 30%),
+                radial-gradient(circle at 80% 80%, rgba(139,92,246,0.4), transparent 30%),
+                linear-gradient(135deg, #0f172a, #1e3a8a, #0369a1);
+
+            padding: 80px 20px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-bottom: 20px;
         }
 
         .hero h2 {
-            font-size: 42px;
-            margin: 10px 0;
+            font-size: clamp(40px, 7vw, 70px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero h2 span {
+            color: #67e8f9;
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 19px;
+            color: #dbeafe;
+            margin-bottom: 32px;
         }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 40px auto;
-        }
-
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
-
-        .product {
+        .hero-button {
+            display: inline-block;
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            text-align: center;
+            color: #0f172a;
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .product .image {
-            font-size: 70px;
-            margin: 15px;
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
 
-        .product h3 {
-            margin: 10px 0;
-        }
+        /* ================= FEATURES ================= */
 
-        .price {
-            font-size: 22px;
-            font-weight: bold;
-            color: #007bff;
-        }
-
-        button {
-            background: #007bff;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            background: #0056b3;
-        }
-
-        footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 25px;
-            margin-top: 50px;
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <h1>ShopEasy</h1>
-
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Products</a>
-        <a href="#">Cart 🛒</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <h2>Welc
+        .features {
+            max-width: 1200px;
+            margin: -45px auto 50px;
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
 ```
