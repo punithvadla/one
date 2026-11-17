@@ -22,7 +22,7 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: #f4f7fb;
-            color: #1f2937;
+            color: #1f2936;
         }
 
         /* HEADER */
